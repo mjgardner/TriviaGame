@@ -30,6 +30,22 @@ var quiz = [
             "Vector Graphics": "incorrect",
             "Storage Drivers": "incorrect"
         }
+    },
+    {
+        "In what year was the first Apple computer released?": {
+            "1976": "correct",
+            "1977": "incorrect",
+            "1982": "incorrect",
+            "1997": "incorrect"
+        }
+    },
+    {
+        "In database programming, SQL is an acroynm for what?": {
+            "Structured Query Language": "correct",
+            "Simple Query Language": "incorrect",
+            "Structured Question Language": "incorrect",
+            "Simple Quality Language": "incorrect"
+        }
     }
 ];
 
