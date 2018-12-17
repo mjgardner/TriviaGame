@@ -39,6 +39,9 @@ $(document).ready(function(){
         $("#game").removeClass("invisible");
         displayQuestions();
         startTimer();
+        $("#finish").click(function(){
+            tallyQuestions();
+        });
     });
 });
 
@@ -82,4 +85,27 @@ function displayQuestions(){
 
 function startTimer(){
 
+}
+
+function tallyQuestions(){
+    var answers = {
+        correct: 0,
+        incorrect: 0,
+        unanswered: quiz.length,
+    };
+    $(".form-check-input").each(function(){
+        if (this.checked && this.value === "correct") {
+            answers.correct++;
+            answers.unanswered--;
+        }
+        else if (this.checked && this.value === "incorrect") {
+            answers.incorrect++;
+            answers.unanswered--;
+        }
+    });
+    Object.keys(answers).forEach(function(value){
+        $("#" + value).text(answers[value]);
+    });
+    $("#game").attr("style", "display: none");
+    $("#score").attr("style", "display: block");
 }
