@@ -35,8 +35,8 @@ var quiz = [
 
 $(document).ready(function(){
     $("#start").click(function(){
-        $("#start-row").addClass("invisible");
-        $("#game").removeClass("invisible");
+        $("#start-row").attr("style", "display: none");
+        $("#game").attr("style", "display: block");
         displayQuestions();
         startTimer();
         $("#finish").click(function(){
