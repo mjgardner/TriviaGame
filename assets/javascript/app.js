@@ -62,7 +62,8 @@ $(document).ready(function(){
 });
 
 function displayQuestions(){
-    quiz.forEach(function(questionObj, questionIndex){
+    var shuffledQuiz = shuffle(quiz);
+    shuffledQuiz.forEach(function(questionObj, questionIndex){
         var question = Object.keys(questionObj)[0];
         var answers  = questionObj[question];
 
