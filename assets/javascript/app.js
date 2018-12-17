@@ -49,6 +49,9 @@ var quiz = [
     }
 ];
 
+var quizTimeout;
+var quizInterval;
+
 $(document).ready(function(){
     $("#start").click(function(){
         $("#start-row").attr("style", "display: none");
@@ -102,10 +105,18 @@ function displayQuestions(){
 }
 
 function startTimer(){
-
+    quizTimeout = setTimeout(tallyQuestions, parseInt($("#timer").text()) * 1000);
+    quizInterval = setInterval(function(){
+        var oldTimer = $("#timer").text();
+        oldTimer--;
+        $("#timer").text(oldTimer);
+    }, 1000);
 }
 
 function tallyQuestions(){
+    clearTimeout(quizTimeout);
+    clearInterval(quizInterval);
+
     var answers = {
         correct: 0,
         incorrect: 0,
