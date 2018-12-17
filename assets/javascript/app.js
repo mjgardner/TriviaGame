@@ -77,7 +77,8 @@ function displayQuestions(){
         var questionCardText = $("<div>")
             .addClass("card-text");
 
-        Object.keys(answers).forEach(function(answer, answerIndex){
+        var shuffledAnswers = shuffle(Object.keys(answers));
+        shuffledAnswers.forEach(function(answer, answerIndex){
             var radioButton = $("<input>")
                 .addClass("form-check-input")
                 .attr("type", "radio")
@@ -124,4 +125,24 @@ function tallyQuestions(){
     });
     $("#game").attr("style", "display: none");
     $("#score").attr("style", "display: block");
+}
+
+// from https://stackoverflow.com/a/2450976/638877
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+  
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+  
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+  
+    return array;
 }
