@@ -40,7 +40,7 @@ var quiz = [
         }
     },
     {
-        "In database programming, SQL is an acroynm for what?": {
+        "In database programming, SQL is an acronym for what?": {
             "Structured Query Language": "correct",
             "Simple Query Language": "incorrect",
             "Structured Question Language": "incorrect",
