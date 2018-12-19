@@ -59,6 +59,7 @@ $(document).ready(function(){
         displayQuestions();
         startTimer();
         $("#finish").click(function(){
+            $("#endMessage").text("All Done!");
             tallyQuestions();
         });
     });
@@ -105,7 +106,10 @@ function displayQuestions(){
 }
 
 function startTimer(){
-    quizTimeout = setTimeout(tallyQuestions, parseInt($("#timer").text()) * 1000);
+    quizTimeout = setTimeout(function(){
+        $("#endMessage").text("Time's Up!");
+        tallyQuestions();
+    }, parseInt($("#timer").text()) * 1000);
     quizInterval = setInterval(function(){
         var oldTimer = $("#timer").text();
         oldTimer--;
